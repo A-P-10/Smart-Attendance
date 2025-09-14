@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIEM Attendance System</title>
+    <link rel="icon" type="image/x-icon" href="1747980539-TIEM Logo.jpeg">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 400px; margin: auto; }
+        label, select, button { display: block; width: 100%; margin-bottom: 15px; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav style="background: linear-gradient(90deg, #4e54c8, #8f94fb); padding: 18px 40px; color: #fff; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <div style="display: flex; align-items: center;">
+            <img src="Attendance Tracker Logo with Checkmark and Clock.png" alt="Attendance Logo" style="height:40px; margin-right: 15px;">
+            <span style="font-size: 1.7em; font-weight: bold; letter-spacing: 1px;">Attendance System</span>
+        </div>
+        <!-- Dropdown Menu Button for Login Forms -->
+        <div class="dropdown" style="position: relative;">
+            <button onclick="toggleDropdown()" class="dropbtn" style="padding:10px 28px; font-size:17px; cursor:pointer; background: #fff; color: #4e54c8; border: none; border-radius: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-weight: 600; transition: background 0.2s;">
+                Login Forms <span style="font-size: 1.2em;">▼</span>
+            </button>
+            <div id="loginDropdown" class="dropdown-content" style="display:none; position:absolute; right:0; background:#fff; min-width:220px; box-shadow:0 8px 24px rgba(78,84,200,0.18); z-index:1; border-radius: 10px; overflow: hidden;">
+                <a href="loginformstudents.html" style="padding:16px 22px; display:block; text-decoration:none; color:#4e54c8; font-weight: 500; transition: background 0.2s;">🧑‍🎓 Students Login Form</a>
+                <a href="teacherloginform.html" style="padding:16px 22px; display:block; text-decoration:none; color:#4e54c8; font-weight: 500; transition: background 0.2s;">👩‍🏫 Teacher Login Form</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+    <div style="position: fixed; top: 70px; left: 0; width: 210px; height: 100%; background: linear-gradient(180deg, #8f94fb 0%, #4e54c8 100%); color: #fff; box-shadow: 2px 0 8px rgba(0,0,0,0.08); padding-top: 40px; z-index: 10;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="padding: 18px 30px; font-size: 1.1em; display: flex; align-items: center;">
+                <img src="https://img.icons8.com/ios-filled/24/home.png" style="margin-right: 12px; filter: invert(1);"> Home
+            </li>
+            <li style="padding: 18px 30px; font-size: 1.1em; display: flex; align-items: center;">
+                <img src="https://img.icons8.com/ios-filled/24/classroom.png" style="margin-right: 12px; filter: invert(1);"> Classes
+            </li>
+            <li style="padding: 18px 30px; font-size: 1.1em; display: flex; align-items: center;">
+                <img src="https://img.icons8.com/ios-filled/24/attendance-mark.png" style="margin-right: 12px; filter: invert(1);"> Attendance
+            </li>
+            <li style="padding: 18px 30px; font-size: 1.1em; display: flex; align-items: center;">
+                <img src="https://img.icons8.com/ios-filled/24/settings.png" style="margin-right: 12px; filter: invert(1);"> Settings
+            </li>
+        </ul>
+    </div>
+    <!-- Main Content -->
+    <div class="container" style="margin-left: 240px; margin-top: 80px; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(78,84,200,0.10); padding: 40px 30px 30px 30px;">
+        <h2 style="color: #4e54c8; font-size: 2em; margin-bottom: 18px; display: flex; align-items: center;">
+             Welcome to the Attendance System
+        </h2>
+        <img src="https://img.icons8.com/color/96/classroom.png" alt="Classroom" style="display:block; margin: 0 auto 30px auto;">
+        <div id="message"></div>
+        <p style="font-size: 1.15em; color: #555; margin-top: 20px;">
+            Easily manage and track attendance for students and teachers. Use the Login Forms menu above to get started.
+        </p>
+    </div>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f6f8fc;
+        }
+        .container {
+            max-width: 500px;
+        }
+        .dropdown-content a:hover {
+            background: #f0f2ff;
+            color: #222;
+        }
+        .dropbtn:hover, .dropbtn:focus {
+            background: #e0e3fa;
+        }
+        /* Custom scrollbar for sidebar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8f94fb;
+            border-radius: 4px;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("loginDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdown = document.getElementById("loginDropdown");
+                if (dropdown && dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+<script>
+// Make sidebar buttons clickable and navigate to respective pages
+document.addEventListener("DOMContentLoaded", function() {
+    const sidebarLinks = [
+        { selector: "ul li:nth-child(1)", url: "hom2.html" }, // Home
+        { selector: "ul li:nth-child(2)", url: "classes.html" }, // Classes
+        { selector: "ul li:nth-child(3)", url: "attendance.html" }, // Attendance
+        { selector: "ul li:nth-child(4)", url: "settings.html" } // Settings
+    ];
+    sidebarLinks.forEach(link => {
+        const el = document.querySelector(link.selector);
+        if (el) {
+            el.style.cursor = "pointer";
+            el.addEventListener("click", function() {
+                window.location.href = link.url;
+            });
+        }
+    });
+});
+</script>
